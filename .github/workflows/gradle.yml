@@ -24,3 +24,5 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: jib
+      run: ./gradlew build -Djib.to.auth.username=taiwanbackendgroup -Djib.to.auth.password=${{ secrets.DOCKER_HUB_PASSWORD }}
