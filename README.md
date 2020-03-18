@@ -1,4 +1,4 @@
-# 🥇event-2020-1-kotlin 🏝 
+# 🥇event-2020-1-kotlin 🏝 [![Java CI with Gradle](https://github.com/b2etw/event-2020-1-kotlin/workflows/Java%20CI%20with%20Gradle/badge.svg?branch=master&event=push)](https://github.com/b2etw/event-2020-1-kotlin/actions)
 * b2e tw 2020 first event, Kotlin version
 * cowork this project for **Slack Bot** with following functions
 
