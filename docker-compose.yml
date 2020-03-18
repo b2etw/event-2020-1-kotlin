@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  event-2020-1-kotlin:
+    image: registry.hub.docker.com/taiwanbackendgroup/event-2020-1-kotlin:0.0.1-SNAPSHOT
+    environment:
+      SPRING_PROFILES_ACTIVE: test
+    networks:
+      - default
+
+networks:
+  default:
