@@ -1,4 +1,4 @@
-# 🥇event-2020-1-kotlin 
+# 🥇event-2020-1-kotlin 🏝 
 * b2e tw 2020 first event, Kotlin version
 * cowork this project for **Slack Bot** with following functions
 
