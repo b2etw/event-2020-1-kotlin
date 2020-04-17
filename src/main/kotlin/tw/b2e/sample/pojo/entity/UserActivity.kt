@@ -1,5 +1,6 @@
-package tw.b2e.data.entity
+package tw.b2e.sample.pojo.entity
 
+import tw.b2e.sample.pojo.enum.ActivityType
 import java.time.LocalDateTime
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -9,15 +10,15 @@ import javax.persistence.Table
 
 @Entity
 @Table
-data class User(
+data class UserActivity(
 
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         val id: Long? = null,
 
-        val account: String,
+        val uid: Long,
 
-        val password: String,
+        val activity: ActivityType,
 
         val createTime: LocalDateTime,
 
