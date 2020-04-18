@@ -1,7 +1,6 @@
 package tw.b2e.sample.controller
 
 
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -17,16 +16,29 @@ class UserDaoTests(
         @Autowired val userInfoRepository: UserInfoRepository
 ) {
 
-    @BeforeEach
-    fun beforeEach() {
+    @Test
+    fun testLoginSuccess() {
         userInfoRepository.save(UserInfo(null, "Vincent", "123456", LocalDateTime.now(), LocalDateTime.now()))
+
+        val loginResponse = userApi.loginUserV1(UserLoginRequest("Vincent", "123456"))
+
+        assertEquals(loginResponse.message, loginResponse.code, 0)
     }
 
     @Test
-    fun test() {
-        val loginResponse = userApi.loginUserV1(UserLoginRequest("Vincent", "123456"))
+    fun testWrongPassword() {
+        userInfoRepository.save(UserInfo(null, "Daniel", "111111", LocalDateTime.now(), LocalDateTime.now()))
 
-        assertEquals("password equals", loginResponse.code, 0)
+        val loginResponse = userApi.loginUserV1(UserLoginRequest("Daniel", "123456"))
+
+        assertEquals(loginResponse.message, loginResponse.code, -100)
+    }
+
+    @Test
+    fun testUserNotExist() {
+        val loginResponse = userApi.loginUserV1(UserLoginRequest("Carlos", "123456"))
+
+        assertEquals(loginResponse.message, loginResponse.code, -101)
     }
 
 }
